@@ -58,7 +58,7 @@ int main(void)
 {
     int r, c;
     int r1, c1;
-	cout << "Enter number of rows and Column of Circle \n";
+	cout << "Enter number of rows and Column of Circle \n";	
 	cin >> r1 >> c1  ;
 	circle(r1, c1);
 }
