@@ -2,48 +2,35 @@
 using namespace std;
 class Complex
 {
-    public: 
-    Complex(int r=0 ,int i =0)
+    private:
+    int real, img;
+
+    public:
+    Complex(int x=0,int y=0)
     {
-       real = r;
-       img = i;   
-   }
-   void print()
-   {
-       cout<<real<<" +i"<<img<<"\n";
-   }
-   Complex operator+(Complex const &obj)
-   {
-       Complex result ;
-       result.real = real + obj.real;
-       result.img = img + obj.img;
-       return result;
-   }
-    void operator<<(Complex const &obj)
-    {
-  	cout<<real<<" +i"<<img<<"\n";
+        real=x;
+        img=y;
     }
-    void operator >>(Complex const &obj)
+    void display()
     {
-        cout<<"enter real part \n";
-        cin>>real;
-        cout<<"enter img part \n ";
-        cin>>img;    
+        cout<<real<<" + "<<img<<"i"<<endl;
     }
     Complex operator * (Complex const &obj)
     {
         Complex result;
-        result.real =  ((real*obj.real) -(img * obj.img));
-        result.img = ((real*obj.img)+(img * obj.real));
-        return result;    
+        result.real=(real*obj.real) - (img * obj.img);
+        result.img = (real* obj.img) + (img * obj.real );
+        return result;
     }
-   private: 
-   int real ,img ;
 };
 int main(void)
 {
-    Complex c1(20,4), c2(2,5);
-    Complex c3;
-    c3 = c1 * c2;
-    c3 << c3;
+    Complex c1(10,3),c2(2,5);
+    Complex c3 = c1*c2;
+    cout<<"First Complex Number= ";
+    c1.display();
+    cout<<"Second Complex Number= ";
+    c2.display();
+    cout<<"Product of First and Second Complex Number is:  ";
+    c3.display();
 }
